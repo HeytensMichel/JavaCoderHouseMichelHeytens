@@ -1,3 +1,4 @@
+/*
 // VARIABLES -----------------------
 let nameEntry = prompt('Ingrese su nombre');
 let ageEntry = parseInt(prompt('Ingrese su edad'));
@@ -79,3 +80,4 @@ appointmentTime()
 appointmentDay()
 triage()
 
+*/

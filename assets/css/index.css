@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(213, 239, 241);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+h2 {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+    min-height: auto;
+}
+
+header {
+    background-color: rgb(162, 223, 231);
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer .h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    background-color: azure;
+    margin-left: 40%;
+    margin-right: 40%;
+    overflow-x: hidden;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 4%%;
+}
