@@ -1,10 +1,16 @@
+// VARIABLES -----------------------
 let nameEntry = prompt('Ingrese su nombre');
 let ageEntry = parseInt(prompt('Ingrese su edad'));
+let motiveEntry = parseInt(prompt(`Indique con el numero correspondiente si tuvo alguno de los siguientes: 
+1-Dolor de cabeza 
+2-Movimientos anormales en extremidades
+3-Traumatismo en la cabeza
+4-Perdida del conocimiento
+5-Pérdida de fuerzas de una mitad del cuerpo
+6-Ninguno`));
+let selection;
 
-
-
-
-
+// FUNCIONES -----------------------
 function name() {
     console.log(('Nombre del paciente: ' + nameEntry.toLowerCase()))
 }
@@ -30,14 +36,6 @@ function appointmentDay() {
         console.log('Asistira el dia: ' + (selection.toLowerCase()))
 }
 }
-
-let motiveEntry = parseInt(prompt(`Indique con el numero correspondiente si tuvo alguno de los siguientes: 
-1-Dolor de cabeza 
-2-Movimientos anormales en extremidades
-3-Traumatismo en la cabeza
-4-Perdida del conocimiento
-5-Pérdida de fuerzas de una mitad del cuerpo
-6-Ninguno`))
 
 function triage () { 
     switch (motiveEntry) {
@@ -74,8 +72,10 @@ function triage () {
     } 
         
 }
+// LLAMADO DE FUNCIONES -----------------------
 name()
 age()
 appointmentTime()
 appointmentDay()
 triage()
+
