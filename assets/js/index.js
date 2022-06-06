@@ -1,6 +1,6 @@
 
 // VARIABLES -----------------------
-let nameEntry = prompt('Ingrese su nombre');
+let nameEntry = prompt('Ingrese su nombre y apellido');
 let ageEntry = parseInt(prompt('Ingrese su edad'));
 let motiveEntry = parseInt(prompt(`Indique con el numero correspondiente si tuvo alguno de los siguientes: 
 1-Dolor de cabeza 
@@ -8,8 +8,9 @@ let motiveEntry = parseInt(prompt(`Indique con el numero correspondiente si tuvo
 3-Traumatismo en la cabeza
 4-Perdida del conocimiento
 5-Pérdida de fuerzas de una mitad del cuerpo
-6-Ninguno`));
+0-Ninguno`));
 let selection;
+let simptoms = simpDesc();
 
 // FUNCIONES -----------------------
 function name() {
@@ -66,17 +67,27 @@ function triage () {
             alert('Asistir inmediatamente a un centro de salud. La Dra. Beltrame sera informada de su situacion.')
             break;
             case 6:
-            motiveEntry = "6";
+            motiveEntry = "0";
             console.log("El paciente no ha indicado sintomas.")
             alert('Su cita ha sido confirmada con exito')
             break;
     } 
         
 }
+
+function simpDesc () {
+    return prompt('De ser necesario, escriba brevemente su sintomatologia');
+}
+
+function simpDescInter () {
+    alert(`Dra. Beltrame el paciente: ${nameEntry} con edad de ${ageEntry} años ha hecho una consulta con usted con nivel de triage ${motiveEntry} y describe la siguiente sintomatologia: ${simptoms}`)
+}
+
 // LLAMADO DE FUNCIONES -----------------------
 name()
 age()
 appointmentTime()
 appointmentDay()
 triage()
+simpDescInter()
 
