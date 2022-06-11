@@ -6,8 +6,6 @@ let nameEntry = prompt('Ingrese su nombre y apellido'); {
     } while (patientList.lenght <= turns)
 }
 
-console.log(patientList.length)
-
 let ageEntry = parseInt(prompt('Ingrese su edad'));
 let motiveEntry = parseInt(prompt(`Indique con el numero correspondiente si tuvo alguno de los siguientes: 
 1-Dolor de cabeza 
@@ -22,7 +20,6 @@ let hospitalSelection = parseInt(prompt('Seleccione su lugar de consulta: 1- Hos
 
 function name() {
     console.log('Nombre del paciente: ' + nameEntry.toLowerCase())
-    console.log("Pacientes registrados hasta el momento: "+ patientList)
 }
 
 function age() {
@@ -44,7 +41,7 @@ function appointmentDay() {
     } else {
         let selection = prompt('¿Asistira el dia: Miercoles, Jueves o Viernes?')
         console.log('Asistira el dia: ' + (selection.toLowerCase()))
-    }
+    } console.log("Pacientes registrados hasta el momento: "+ patientList)
 }
 
 function triage() {
@@ -112,9 +109,9 @@ function hospSelect() {
 
 name()
 age()
-appointmentTime()
 hospSelect()
 appointmentDay()
+appointmentTime()
 triage()
 
 
