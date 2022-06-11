@@ -1,6 +1,13 @@
+const patientList = ["Marcos Zabala", "Nicolas Hernandez", "Beatriz Girafales"]
+let turns = 10
+let nameEntry = prompt('Ingrese su nombre y apellido'); {
+    do {
+        patientList.push(nameEntry.toLowerCase())
+    } while (patientList.lenght <= turns)
+}
 
-// VARIABLES -----------------------
-let nameEntry = prompt('Ingrese su nombre y apellido');
+console.log(patientList.length)
+
 let ageEntry = parseInt(prompt('Ingrese su edad'));
 let motiveEntry = parseInt(prompt(`Indique con el numero correspondiente si tuvo alguno de los siguientes: 
 1-Dolor de cabeza 
@@ -11,10 +18,11 @@ let motiveEntry = parseInt(prompt(`Indique con el numero correspondiente si tuvo
 0-Ninguno`));
 let selection;
 let simptoms = simpDesc();
+let hospitalSelection = parseInt(prompt('Seleccione su lugar de consulta: 1- Hospital Español 2- Hospital de clinicas.'))
 
-// FUNCIONES -----------------------
 function name() {
-    console.log(('Nombre del paciente: ' + nameEntry.toLowerCase()))
+    console.log('Nombre del paciente: ' + nameEntry.toLowerCase())
+    console.log("Pacientes registrados hasta el momento: "+ patientList)
 }
 
 function age() {
@@ -36,58 +44,77 @@ function appointmentDay() {
     } else {
         let selection = prompt('¿Asistira el dia: Miercoles, Jueves o Viernes?')
         console.log('Asistira el dia: ' + (selection.toLowerCase()))
-}
+    }
 }
 
-function triage () { 
+function triage() {
     switch (motiveEntry) {
         case 1:
             motiveEntry = "1";
             console.log("El paciente ha indicado dolores de cabeza")
-            alert('Su cita ha sido confirmada con exito')
+            console.log("Descripcion de sintomatologia: " + simptoms)
             break;
-            case 2:
+        case 2:
             motiveEntry = "2";
             console.log("El paciente ha indicado movimientos anormales en extremidades")
-            alert('Su cita ha sido confirmada con exito')
+            console.log("Descripcion de sintomatologia: " + simptoms)
             break;
-            case 3:
+        case 3:
             motiveEntry = "3";
             console.log("El paciente ha indicado traumatismo en la cabeza")
-            alert('Su cita ha sido confirmada con exito, es recomedable que asista a un centro de salud previo a su visita.')
+            console.log("Descripcion de sintomatologia: " + simptoms)
+            alert('Es recomedable que asista a un centro de salud previo a su visita.')
             break;
-            case 4:
+        case 4:
             motiveEntry = "4";
             console.log("El paciente ha indicado perdida del conocimiento")
-            alert('Su cita ha sido confirmada con exito, se exhorta a asistir a un centro de salud a la brevedad previo a su consulta')
+            console.log("Descripcion de sintomatologia: " + simptoms)
+            alert('Se exhorta a asistir a un centro de salud a la brevedad previo a su consulta')
             break;
-            case 5:
+        case 5:
             motiveEntry = "5";
             console.log("El paciente ha indicado perdida de fuerza en un hemisferio")
+            console.log("Descripcion de sintomatologia: " + simptoms)
             alert('Asistir inmediatamente a un centro de salud. La Dra. Beltrame sera informada de su situacion.')
             break;
-            case 6:
+        case 6:
             motiveEntry = "0";
             console.log("El paciente no ha indicado sintomas.")
             alert('Su cita ha sido confirmada con exito')
             break;
-    } 
-        
+    }
 }
 
-function simpDesc () {
+function simpDesc() {
     return prompt('De ser necesario, escriba brevemente su sintomatologia');
 }
 
-function simpDescInter () {
-    alert(`Dra. Beltrame el paciente: ${nameEntry} con edad de ${ageEntry} años ha hecho una consulta con usted con nivel de triage ${motiveEntry} y describe la siguiente sintomatologia: ${simptoms}`)
+class Doctor {
+    constructor(nombre, especialidad, consultorio) {
+        this.name = nombre;
+        this.especialty = especialidad;
+        this.place = consultorio;
+    }
+    hablar() {
+        console.log("Hola soy "+ this.name)
+}
+}
+const doctor1 = new Doctor("Beltrame Valentina", "Neurologia", "Hospital de Clinicas")
+const doctor2 = new Doctor("Beltrame Pablo", "Neurologia", "Hospital Español")
+
+function hospSelect() {
+    if (hospitalSelection === 1) {
+        console.log('Usted sera atendido en: ' + doctor2.place + ' por: ' + doctor2.name + " TURNO: " + (patientList.length))
+    } else if (hospitalSelection === 2) {
+        console.log('Usted sera atendido en: ' + doctor1.place + ' por: ' + doctor1.name + " TURNO: " + (patientList.length))
+    } else { alert('Ingrese un dato valido') }
 }
 
-// LLAMADO DE FUNCIONES -----------------------
 name()
 age()
 appointmentTime()
+hospSelect()
 appointmentDay()
 triage()
-simpDescInter()
+
 
