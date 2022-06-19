@@ -103,8 +103,12 @@ triage ()
 
 
 function patientHistory () {
-    const history = patientList.find ((patient) => patient.name === (prompt("Buscar historia clinica de: ")))
+    //se ingresa nombre del paciente, para que busque dentro de los objetos del array, cual tiene ese nombre, y printee la historia
+    const history = patientList.find ((patient) => patient.name = (prompt("Buscar historia clinica de: ")))
+    //antes del console log, se debe ingresar el nombre a buscar, la cantidad de veces igual a obejtos en el array. Ej, mica, prompt, mica, prompt, mica, 
+    //cuando cumple el prompt una vez por cada objeto, ahi printea si es correcoto o no
     console.log(history)
+
 }
 
 patientHistory ()
