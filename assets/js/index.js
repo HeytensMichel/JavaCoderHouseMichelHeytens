@@ -1,3 +1,14 @@
+let motiveEntry = parseInt(prompt(`Indique el nivel de triage del paciente: 
+1-Sintomatologia sin urgencia.
+2-Sintomatologia leve sin riesgo de vida.
+3-Sintomatologia moderada con dolores o impedimentos.
+4-Sintomatologia con dolores o impedimentos considerables.
+5-Sintomatologia con riesgo de vida, dolores fuertes, impedimentos severos.
+0-Ninguna sintomatologia`));
+
+let triageLevel = motiveEntry;
+
+
 class Patient {
     constructor(nombre, edad, patologias, medicacion, motivo, triage) {
         this.name = nombre;
@@ -5,12 +16,13 @@ class Patient {
         this.pats = patologias;
         this.meds = medicacion;
         this.motive = motivo;
+        this.triage = triage;
     }
 }
 //
-const patient1 = new Patient("Marcos Zabala", "22", "Asma severa", "Ventolin, Prednisona", "Falta de aire",)
-const patient2 = new Patient("Martina Zaldivar", "55", "Osteoporosis", "Tramadol", "Poca movilidad en piernas",)
-const patient3 = new Patient(prompt("NOMBRE DEL PACIENTE"), prompt("EDAD DEL PACIENTE"), prompt("PATOLOGIAS PREVIAS"), prompt("MEDICACION RECETADA"), prompt("MOTIVO DE CONSULTA"),)
+const patient1 = new Patient("Marcos Zabala", "22", "Asma severa con internaciones", "Ventolin, Prednisona", "Falta de aire, tos, fiebre", "3",)
+const patient2 = new Patient("Martina Zaldivar", "55", "Osteoporosis", "Tramadol", "Poca movilidad en piernas", "2")
+const patient3 = new Patient(prompt("NOMBRE DEL PACIENTE"), prompt("EDAD DEL PACIENTE"), prompt("PATOLOGIAS PREVIAS"), prompt("MEDICACION RECETADA"), prompt("MOTIVO DE CONSULTA"), triageLevel,)
 const patientList = [patient1, patient2,]
 let turns = 10
 let patEntry = patient3; {
@@ -28,14 +40,6 @@ class Doctor {
 }
 const doctor1 = new Doctor("Beltrame Valentina", "Neurologia", "Hospital de Clinicas")
 const doctor2 = new Doctor("Michel Heytens", "Emergencia", "Hospital Español")
-
-let motiveEntry = parseInt(prompt(`Indique el nivel de triage del paciente: 
-1-Sintomatologia sin urgencia.
-2-Sintomatologia leve sin riesgo de vida.
-3-Sintomatologia moderada con dolores o impedimentos.
-4-Sintomatologia con dolores o impedimentos considerables.
-5-Sintomatologia con riesgo de vida, dolores fuertes, impedimentos severos.
-0-Ninguna sintomatologia`));
 
 function triage() {
     switch (motiveEntry) {
@@ -97,4 +101,11 @@ function triage() {
 
 triage ()
 
-console.log(patientList.length)
+
+function patientHistory () {
+    const history = patientList.find ((patient) => patient.name === (prompt("Buscar historia clinica de: ")))
+    console.log(history)
+}
+
+patientHistory ()
+
