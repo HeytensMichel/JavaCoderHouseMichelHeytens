@@ -21,7 +21,7 @@ class Patient {
 }
 //
 const patient1 = new Patient("Marcos Zabala", "22", "Asma severa con internaciones", "Ventolin, Prednisona", "Falta de aire, tos, fiebre", "3",)
-const patient2 = new Patient("Martina Zaldivar", "55", "Osteoporosis", "Tramadol", "Poca movilidad en piernas", "2")
+const patient2 = new Patient("Martina Zaldivar", "55", "Osteoporosis", "Tramadol", "Poca movilidad en piernas", "3")
 const patient3 = new Patient(prompt("NOMBRE DEL PACIENTE"), prompt("EDAD DEL PACIENTE"), prompt("PATOLOGIAS PREVIAS"), prompt("MEDICACION RECETADA"), prompt("MOTIVO DE CONSULTA"), triageLevel,)
 const patientList = [patient1, patient2,]
 let turns = 10
@@ -99,17 +99,37 @@ function triage() {
     }
 }
 
-triage ()
+triage()
 
 
-function patientHistory () {
-    //se ingresa nombre del paciente, para que busque dentro de los objetos del array, cual tiene ese nombre, y printee la historia
-    const history = patientList.find ((patient) => patient.name = (prompt("Buscar historia clinica de: ")))
-    //antes del console log, se debe ingresar el nombre a buscar, la cantidad de veces igual a obejtos en el array. Ej, mica, prompt, mica, prompt, mica, 
-    //cuando cumple el prompt una vez por cada objeto, ahi printea si es correcoto o no
+function patientHistory() {
+
+    let historySearch = prompt("Busqueda por nombre: ");
+
+    let history = (patientList.find((p) => p.name == historySearch))
+
     console.log(history)
 
 }
 
-patientHistory ()
+patientHistory()
 
+function patientTriage() {
+
+    let triageSearch = +prompt("Busqueda por triage: ");
+
+    let history = (patientList.filter((p) => p.triage == triageSearch))
+
+    if (history.length == 0) {
+
+        console.log("no se encontraron resultados con triage de ese nivel")
+
+    } else {
+
+        console.log(history)
+
+    }
+
+}
+
+patientTriage()
