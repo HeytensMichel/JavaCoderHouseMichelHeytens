@@ -1,3 +1,4 @@
+
 let motiveEntry = parseInt(prompt(`Indique el nivel de triage del paciente: 
 1-Sintomatologia sin urgencia.
 2-Sintomatologia leve sin riesgo de vida.
@@ -127,6 +128,8 @@ function patientTriage() {
     } else {
 
         console.log(history)
+        document.write("el html interactua creo " + patient3.name + " o no?")
+        
 
     }
 

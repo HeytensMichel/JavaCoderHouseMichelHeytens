@@ -16,7 +16,7 @@ h2 {
     justify-content: center;
 }
 
-form {
+button {
     display: flex;
     justify-content: center;
     margin: 1%;
